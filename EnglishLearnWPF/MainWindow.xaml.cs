@@ -31,7 +31,9 @@ namespace EnglishLearnWPF
         public string russian { get; set; }
         public bool learned { get; set; }
     }
-
+/** private void Logger(string error)
+ * {
+ * }**/
 
     /// public class 
 
