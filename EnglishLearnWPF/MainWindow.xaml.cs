@@ -31,11 +31,9 @@ namespace EnglishLearnWPF
         public string russian { get; set; }
         public bool learned { get; set; }
     }
-/** private void Logger(string error)
- * {
- * }**/
 
-    /// public class 
+
+
 
     public partial class MainWindow : Window
     {
@@ -44,6 +42,25 @@ namespace EnglishLearnWPF
                 new Dict { english = "1", russian = "1", learned = false }
             };
 
+        private void Logger(string error)
+        {
+            try
+            {
+                using (StreamWriter errFile = new StreamWriter("logger.log", true, System.Text.Encoding.Default))
+                {
+                    errFile.WriteLine(error);
+                    errFile.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                StreamWriter errFile = new StreamWriter("logger.log", false, System.Text.Encoding.Default);
+                errFile.WriteLine(e.Message);
+                errFile.Close();
+            }
+            
+        }
+        
         public MainWindow()
         {
               InitializeComponent();
@@ -99,6 +116,7 @@ namespace EnglishLearnWPF
 
         private void printButton_Click(object sender, RoutedEventArgs e)
         {
+            Logger("test");
             System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
             if (printDialog.ShowDialog() == true)
             {
