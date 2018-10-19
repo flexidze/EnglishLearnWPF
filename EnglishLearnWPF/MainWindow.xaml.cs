@@ -37,10 +37,10 @@ namespace EnglishLearnWPF
 
     public partial class MainWindow : Window
     {
-        ObservableCollection<Dict> myDict = new ObservableCollection<Dict>
-            {
-                new Dict { english = "1", russian = "1", learned = false }
-            };
+        ObservableCollection<Dict> myDict = new ObservableCollection<Dict>();
+            //{
+            //    new Dict { english = "1", russian = "1", learned = false }
+            //};
 
         private void Logger(string error)
         {
@@ -68,12 +68,12 @@ namespace EnglishLearnWPF
 
         public void loadDict(object sender, RoutedEventArgs e)
         {
+            dataGrid.ItemsSource = myDict;
             bool tr = false;
             string nameFile = "c:/temp/123.txt";
             string tempString="";
             StreamReader sr = new StreamReader(nameFile);
-                   Hello.Content= tr;
-            
+        
             tempString = sr.ReadLine();
             while (tempString!=null)
             {
@@ -81,10 +81,9 @@ namespace EnglishLearnWPF
                 myDict.Add(new Dict { english = arrString[0], russian = arrString[1], learned = Boolean.Parse(arrString[2]) });///
                 tempString = sr.ReadLine();
                 button3.Background = new SolidColorBrush(Colors.Green);
-                button3.Content = "rgergrt";
             }
-    dataGrid.ItemsSource = myDict;
-
+            dataGrid.ItemsSource = myDict;
+            
             sr.Close();
 
         }
@@ -122,6 +121,45 @@ namespace EnglishLearnWPF
             {
                 printDialog.PrintVisual(dataGrid, "moi file");
             }
+        }
+
+        private void Variant_button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Variant_button.Content == "Переводим на английский")
+                {
+                Variant_button.Content = "Переводим на русский";
+                }
+            else
+            {
+                Variant_button.Content = "Переводим на английский";
+            }
+        }
+
+        private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int val;
+            if (!Int32.TryParse(e.Text, out val))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void textBox_TextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int val;
+            val = Int32.Parse(textBox.Text);
+            if (val > 50)
+            { e.Handled = true;  textBox.Text = "50"; }
+            else if (val < 1)
+            { e.Handled = true; textBox.Text = "1"; }
+
+            
         }
     }
 }
