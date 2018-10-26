@@ -1,0 +1,15 @@
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\bin\Debug\EnglishLearnWPF.exe.config
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\bin\Debug\EnglishLearnWPF.exe
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\bin\Debug\EnglishLearnWPF.pdb
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.csprojAssemblyReference.cache
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\MainWindow.g.cs
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\App.g.cs
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF_MarkupCompile.cache
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF_MarkupCompile.lref
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\MainWindow.baml
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.g.resources
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.Properties.Resources.resources
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.csproj.GenerateResource.cache
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.csproj.CoreCompileInputs.cache
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.exe
+C:\coding\EnglishLearnWPF-master\EnglishLearnWPF-master\EnglishLearnWPF\obj\Debug\EnglishLearnWPF.pdb

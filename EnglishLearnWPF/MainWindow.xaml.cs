@@ -66,25 +66,33 @@ namespace EnglishLearnWPF
               InitializeComponent();
         }
 
-        public void loadDict(object sender, RoutedEventArgs e)
-        {
-            dataGrid.ItemsSource = myDict;
-            bool tr = false;
-            string nameFile = "c:/temp/123.txt";
-            string tempString="";
-            StreamReader sr = new StreamReader(nameFile);
-        
-            tempString = sr.ReadLine();
-            while (tempString!=null)
+        public void LoadDict(object sender, RoutedEventArgs e)
+        { 
+            string FilePath;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            if (Convert.ToBoolean(openDialog.ShowDialog()) == true)
             {
-                string[] arrString = tempString.Split(':');
-                myDict.Add(new Dict { english = arrString[0], russian = arrString[1], learned = Boolean.Parse(arrString[2]) });///
+                FilePath = openDialog.FileName;
+                dataGrid.ItemsSource = myDict;
+                string tempString = "";
+                StreamReader sr = new StreamReader(FilePath);
                 tempString = sr.ReadLine();
-                button3.Background = new SolidColorBrush(Colors.Green);
+                if (String.Equals (tempString, "Right File"))
+                    {
+                    firstform.Title = $"EnglishLearn - {openDialog.FileName}";
+                    tempString = sr.ReadLine();
+                    while (tempString != null)
+                        {
+                          string[] arrString = tempString.Split(':');
+                          myDict.Add(new Dict { english = arrString[0], russian = arrString[1], learned = Boolean.Parse(arrString[2]) });///
+                          tempString = sr.ReadLine();
+                          button3.Background = new SolidColorBrush(Colors.Green);
+                        }
+                    dataGrid.ItemsSource = myDict;
+                    sr.Close();
+                    }
+                else { firstform.Title = "EnglishLearn - WRONG FILE"; };
             }
-            dataGrid.ItemsSource = myDict;
-            
-            sr.Close();
 
         }
 
@@ -135,14 +143,13 @@ namespace EnglishLearnWPF
             }
         }
 
-        private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e) // проверка ввода цифры
         {
             int val;
-            if (!Int32.TryParse(e.Text, out val))
+            if ((!Int32.TryParse(e.Text, out val)))  //|| (e.Text==null)
             {
                 e.Handled = true;
             }
-
         }
 
         private void textBox_TextInput(object sender, TextCompositionEventArgs e)
@@ -150,16 +157,19 @@ namespace EnglishLearnWPF
 
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)   // проверка попадания в интервал
         {
             int val;
-            val = Int32.Parse(textBox.Text);
-            if (val > 50)
-            { e.Handled = true;  textBox.Text = "50"; }
-            else if (val < 1)
-            { e.Handled = true; textBox.Text = "1"; }
-
-            
+            if (Int32.TryParse(textBox.Text, out val))
+            {
+                if ((Int32.Parse(textBox.Text) < 1) | (Int32.Parse(textBox.Text) > 50))
+                {
+                    textBox.Text = "50";
+                }
+            }
+            //char [] s = textBox.Text.ToCharArray();
+            //label.Content = s[0];
+           
         }
     }
 }
